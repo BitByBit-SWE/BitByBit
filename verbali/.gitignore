@@ -1,0 +1,30 @@
+# File temporanei LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.nav
+*.snm
+*.vrb
+*.lof
+*.lot
+*.lol
+*.bbl
+*.blg
+*.dvi
+*.ps
+*.gz
+*.run.xml
+*.bcf
+
+# File temporanei editor
+*~
+*.bak
+*.tmp
+
+# File compilati (PDF)
+# ⚠️ Rimuovere il commento sotto se si vuole che i PDF NON vengano salvati in Git ⚠️
+# *.pdf
