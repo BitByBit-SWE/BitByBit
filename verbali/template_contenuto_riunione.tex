@@ -1,0 +1,80 @@
+% contenuto_riunione.tex
+% ----------------------
+% EDITA solo questo file per ogni riunione.
+% Sostituisci i valori fra {} e aggiungi/rimuovi righe nelle liste.
+% NON inserire \documentclass o \begin{document} qui.
+
+% ---------- METADATI (modifica solo qui) ----------
+\newcommand{\nomegruppo}{\textbf{BitByBit}}
+\newcommand{\numeroverbale}{}
+\newcommand{\datariunione}{}
+\newcommand{\orainizio}{}
+\newcommand{\orafine}{}
+\newcommand{\durata}{}
+\newcommand{\piattaforma}{}
+% --------------------------------------------------
+
+% ---------- HEADER VISIBILE ---------- 
+\begin{center}
+    \vspace*{0.5em}
+    \includegraphics[width=0.25\textwidth]{logo.png}\\[1em]
+    {\LARGE \textbf{Verbale di Riunione n.\numeroverbale}}\\[0.7em]
+    {\large Gruppo: \nomegruppo}\\[0.3em]
+    {\normalsize Data: \textbf{\datariunione}}\\[0.3em]
+    {\normalsize Ora inizio: \textbf{\orainizio} \quad Ora fine: \textbf{\orafine}}\\[0.3em]
+    {\normalsize Durata: \textbf{\durata}}\\[0.3em]
+    {\normalsize Piattaforma: \textbf{\piattaforma}}\\[1em]
+\end{center}
+
+\vspace{0.5em}
+\hrule
+\vspace{1em}
+
+% ---------- PARTECIPANTI (modifica elenco) ----------
+\section*{Partecipanti}
+\begin{itemize}
+    \item Dennis Parolin
+    \item Riccardo Manisi
+    \item Gabriele Scaggiante
+    \item Ferdinando Fracasso
+    \item Giovanni Visentin
+    % Aggiungi o rimuovi \item qui sotto secondo necessità
+\end{itemize}
+
+% ---------- ASSENTI (modifica elenco) ----------
+\section*{Assenti}
+\begin{itemize}
+    \item Nessuno
+    % Se ci sono assenti, sostituisci la riga sopra con i nomi
+\end{itemize}
+
+% ---------- ORDINE DEL GIORNO (modifica elenco) ----------
+\section*{Ordine del giorno}
+\begin{enumerate}
+    \item Pianificazione attività settimanali
+    \item Scelta architettura software
+    \item Suddivisione dei compiti
+    % Aggiungi o modifica punti qui
+\end{enumerate}
+
+% ---------- DISCUSSIONE E DECISIONI (modifica testo e lista) ----------
+\section*{Discussione e decisioni}
+Qui puoi mettere un breve riassunto generale della discussione (1-3 frasi),
+poi elencare le decisioni concrete:
+
+\begin{itemize}
+    \item È stato deciso di utilizzare l'architettura \textbf{MVC}.
+    \item Il front-end sarà sviluppato in \textit{React}, il back-end in \textit{Flask}.
+    \item Mario si occuperà di preparare la documentazione tecnica entro il \textbf{25/10}.
+    % Aggiungi o modifica decisioni qui
+\end{itemize}
+
+% ---------- PROSSIME ATTIVITÀ (modifica elenco con nomi e scadenze) ----------
+\section*{Prossime attività}
+\begin{itemize}
+    \item \textbf{Anna Bianchi}: prototipo dell'interfaccia — scadenza \textbf{27/10}.
+    \item \textbf{Luca Verdi}: setup del server e ambiente di test — scadenza \textbf{26/10}.
+    \item \textbf{Mario Rossi}: documentazione tecnica — scadenza \textbf{25/10}.
+    % Aggiungi o modifica attività qui
+\end{itemize}
+
