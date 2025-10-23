@@ -1,0 +1,41 @@
+name: Build LaTeX documents
+
+on:
+  push:
+    branches:
+      - develop
+      - feature/**
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full latexmk
+
+      - name: Compile all .tex files
+        run: |
+          for file in $(find src -name "*.tex"); do
+            # calcola percorso relativo dentro src/
+            relpath="${file#src/}"
+            # costruisci cartella di output in docs/
+            outdir="docs/$(dirname "$relpath")"
+            mkdir -p "$outdir"
+            echo "Compilazione di $file → $outdir"
+            latexmk -pdf -interaction=nonstopmode -output-directory="$outdir" "$file"
+          done
+
+      - name: Upload built PDFs as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-pdfs
+          path: docs/
