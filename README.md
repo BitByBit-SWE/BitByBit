@@ -17,12 +17,12 @@ todo
 ## Componenti del gruppo
 | Nominativo | Matricola |
 | ---------- | --------- |
-| Dennis Parolin  | ? |
-| Ferdinando Fracasso | ? |
-| Giovanni Visentin | ? |
-| Riccardo Manisi   | ? |
-| Marco   | ? |
-
+| Dennis Parolin  | 2113203 |
+| Ferdinando Fracasso | 2122649 |
+| Giovanni Visentin | 2101064 |
+| Riccardo Manisi   | 2111948 |
+| Marco Sanguin  | 2103121 |
+| Gabriele Scaggiante  | 2101076 |
 ---
 
 ## Contatti
