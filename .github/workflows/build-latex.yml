@@ -4,10 +4,8 @@ on:
   push:
     branches:
       - develop
-      - feature/**
+      - feature/*
   pull_request:
-    branches:
-      - main
 
 jobs:
   build:
@@ -22,20 +20,18 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y texlive-full latexmk
 
-      - name: Compile all .tex files
+      - name: Clean old LaTeX build files
+        run: |
+          echo "Pulizia dei file ausiliari precedenti..."
+          find docs -type f \( -name "*.aux" -o -name "*.log" -o -name "*.fls" -o -name "*.fdb_latexmk" -o -name "*.out" \) -delete || true
+
+      - name: Compile LaTeX files from src/ to docs/
         run: |
           for file in $(find src -name "*.tex"); do
-            # calcola percorso relativo dentro src/
-            relpath="${file#src/}"
-            # costruisci cartella di output in docs/
-            outdir="docs/$(dirname "$relpath")"
+            relpath="${file#src/}"                          # es. verbali_interni/verbale.tex
+            outdir="docs/$(dirname "$relpath")"             # es. docs/verbali_interni
+            outpdf="$outdir/$(basename "${file%.tex}.pdf")" # es. docs/verbali_interni/verbale.pdf
             mkdir -p "$outdir"
-            echo "Compilazione di $file → $outdir"
-            latexmk -pdf -interaction=nonstopmode -output-directory="$outdir" "$file"
+            echo "Compilazione di $file → $outpdf"
+            latexmk -pdf -interaction=nonstopmode -output-directory="$outdir" -f "$file"
           done
-
-      - name: Upload built PDFs as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: generated-pdfs
-          path: docs/
