@@ -3,35 +3,29 @@ name: Build LaTeX documents
 on:
   push:
     branches:
+      - main
       - develop
-      - feature/*
-  pull_request:
+      - 'feature/**'
 
 jobs:
-  build:
+  build-latex:
     runs-on: ubuntu-latest
-
+    container: ghcr.io/xu-cheng/texlive-full:latest  # ✅ Ambiente già pronto con TeX Live
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install TeX Live
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full latexmk
-
-      - name: Clean old LaTeX build files
-        run: |
-          echo "Pulizia dei file ausiliari precedenti..."
-          find docs -type f \( -name "*.aux" -o -name "*.log" -o -name "*.fls" -o -name "*.fdb_latexmk" -o -name "*.out" \) -delete || true
-
-      - name: Compile LaTeX files from src/ to docs/
+      - name: Build all .tex files
         run: |
           for file in $(find src -name "*.tex"); do
-            relpath="${file#src/}"                          # es. verbali_interni/verbale.tex
-            outdir="docs/$(dirname "$relpath")"             # es. docs/verbali_interni
-            outpdf="$outdir/$(basename "${file%.tex}.pdf")" # es. docs/verbali_interni/verbale.pdf
+            relpath="${file#src/}"
+            outdir="docs/$(dirname "$relpath")"
+            outpdf="$outdir/$(basename "${file%.tex}.pdf")"
             mkdir -p "$outdir"
             echo "Compilazione di $file → $outpdf"
             latexmk -pdf -interaction=nonstopmode -output-directory="$outdir" -f "$file"
           done
+
+      - name: Clean auxiliary files
+        run: |
+          find docs -type f ! -name "*.pdf" -delete
