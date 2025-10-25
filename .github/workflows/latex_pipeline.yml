@@ -27,7 +27,7 @@ jobs:
 
       - name: Apply LaTeX template
         run: |
-          for tex_file in $(find src -type f -name "*.tex"); do
+          for tex_file in $(find docs -type f -name "*.tex"); do
             python .github/scripts/apply_template.py "$tex_file" .github/latex_header.tex
           done
 
@@ -42,7 +42,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
-            $(find src -type f -name "*.tex")
+            $(find docs -type f -name "*.tex")
           work_in_root_file_dir: true
           latexmk_shell_escape: true
 
