@@ -1,0 +1,114 @@
+% template presente
+% verbale.tex
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+% ---------- IMPOSTAZIONI ----------
+\geometry{margin=2.5cm}
+\setstretch{1.15}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textbf{Verbale di Riunione}}
+\lhead{\textbf{Progetto Universitario}}
+\rfoot{\small Pagina \thepage}
+
+% ---------- DOCUMENTO ----------
+\begin{document}
+
+% contenuto_riunione.tex
+% ----------------------
+% EDITA solo questo file per ogni riunione.
+% Sostituisci i valori fra {} e aggiungi/rimuovi righe nelle liste.
+% NON inserire \documentclass o \begin{document} qui.
+
+% ---------- METADATI (modifica solo qui) ----------
+\newcommand{\nomegruppo}{\textbf{BitByBit}}
+\newcommand{\numeroverbale}{01}
+\newcommand{\datariunione}{xxxx}
+\newcommand{\orainizio}{xxxx}
+\newcommand{\orafine}{xxxx}
+\newcommand{\durata}{xx}
+\newcommand{\piattaforma}{xxxx}
+% --------------------------------------------------
+
+% ---------- HEADER VISIBILE ---------- 
+\begin{center}
+    \vspace*{0.5em}
+    \includegraphics[width=0.25\textwidth]{image-logo.png}\\[1em]
+    {\LARGE \textbf{Verbale di Riunione n.\numeroverbale}}\\[0.7em]
+    {\large Gruppo: \nomegruppo}\\[0.3em]
+    {\normalsize Data: \textbf{\datariunione}}\\[0.3em]
+    {\normalsize Ora inizio: \textbf{\orainizio} \quad Ora fine: \textbf{\orafine}}\\[0.3em]
+    {\normalsize Durata: \textbf{\durata}}\\[0.3em]
+    {\normalsize Piattaforma: \textbf{\piattaforma}}\\[1em]
+\end{center}
+
+\vspace{0.5em}
+\hrule
+\vspace{1em}
+
+% ---------- PARTECIPANTI (modifica elenco) ----------
+\section*{Partecipanti}
+\begin{itemize}
+    \item 
+    % Aggiungi o rimuovi \item qui sotto secondo necessità
+\end{itemize}
+
+% ---------- ASSENTI (modifica elenco) ----------
+\section*{Assenti}
+\begin{itemize}
+    % Se ci sono assenti, sostituisci la riga sopra con i nomi
+\end{itemize}
+
+% ---------- ORDINE DEL GIORNO (modifica elenco) ----------
+\section*{Ordine del giorno}
+\begin{enumerate}
+    % Aggiungi o modifica punti qui
+\end{enumerate}
+
+% ---------- DISCUSSIONE E DECISIONI (modifica testo e lista) ----------
+\section*{Discussione e decisioni}
+
+\begin{itemize}
+    % Aggiungi o modifica decisioni qui
+\end{itemize}
+
+% ---------- PROSSIME ATTIVITÀ (modifica elenco con nomi e scadenze) ----------
+\section*{Prossime attività}
+\begin{itemize}
+    % Aggiungi o modifica attività qui
+\end{itemize}
+% ---------- REDAZIONE E REVISIONE ----------
+\vspace{2em}
+\hrule
+\vspace{0.8em}
+\section*{Redazione e revisioni del documento}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3} % aumenta leggermente l'altezza delle righe
+\begin{tabular}{|p{0.18\linewidth}|p{0.22\linewidth}|p{0.20\linewidth}|p{0.28\linewidth}|}
+\hline
+\textbf{Ruolo} & \textbf{Nome} & \textbf{Data e ora} & \textbf{Descrizione} \\
+\hline
+Redatto da & xxxx & xxxx & xxxxx \\
+\hline
+Verificato da & xxxx & xxx xx & xxxxx \\
+\hline
+Modifiche & xxxx & xxxx & xxxx \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\end{document}
+
+
