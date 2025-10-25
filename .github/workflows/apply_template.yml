@@ -21,9 +21,10 @@ jobs:
 
       - name: Apply template to all .tex files
         run: |
-          TEMPLATE="src/latex_header.tex"
+          TEMPLATE=".github/latex_header.tex"
+          SCRIPT=".github/scripts/apply_template.py"
           for tex_file in $(find src -type f -name "*.tex"); do
-            python src/apply_template.py "$tex_file" "$TEMPLATE"
+            python "$SCRIPT" "$tex_file" "$TEMPLATE"
           done
 
       - name: Commit changes if any
