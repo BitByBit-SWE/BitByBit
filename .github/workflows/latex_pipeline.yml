@@ -35,7 +35,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add src/**/*.tex
+          git add docs/**/*.tex
           git diff --cached --quiet || git commit -m "Applied LaTeX template via Action"
 
       - name: Compile all LaTeX files
@@ -50,6 +50,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add src/**/*.pdf
+          git add docs/**/*.tex
           git diff --cached --quiet || git commit -m "Added compiled PDFs via LaTeX Action"
           git push
