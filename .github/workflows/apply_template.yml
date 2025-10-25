@@ -1,0 +1,35 @@
+name: Apply LaTeX Template
+
+on:
+  push:
+    branches:
+      - '**'
+  workflow_dispatch:
+
+jobs:
+  apply-template:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: Apply template to all .tex files
+        run: |
+          TEMPLATE="src/latex_header.tex"
+          for tex_file in $(find src -type f -name "*.tex"); do
+            python src/apply_template.py "$tex_file" "$TEMPLATE"
+          done
+
+      - name: Commit changes if any
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add src/**/*.tex
+          git diff-index --quiet HEAD || git commit -m "Applied LaTeX template via Action"
+          git push

@@ -10,7 +10,7 @@ on:
 jobs:
   build-latex:
     runs-on: ubuntu-latest
-    container: ghcr.io/xu-cheng/texlive-full:latest  # ✅ Ambiente già pronto con TeX Live
+    container: ghcr.io/xu-cheng/texlive-full:latest  
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
