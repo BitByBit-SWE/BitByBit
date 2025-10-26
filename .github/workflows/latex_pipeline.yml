@@ -48,6 +48,6 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add docs/**/*.tex
+          git add docs/**/*.pdf
           git diff --cached --quiet || git commit -m "Added compiled PDFs via LaTeX Action"
           git push
