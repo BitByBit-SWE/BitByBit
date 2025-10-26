@@ -26,7 +26,7 @@ jobs:
       - name: Apply LaTeX template
         run: |
           for tex_file in $(find docs -type f -name "*.tex"); do
-            python .github/scripts/apply_template.py "$tex_file" .github/latex_header.tex
+            python .github/scripts/apply_template.py "$tex_file" .github/latex_header.txt
           done
 
       - name: Commit updated .tex files
