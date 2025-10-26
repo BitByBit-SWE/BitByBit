@@ -26,7 +26,7 @@ jobs:
       - name: Apply LaTeX template
         run: |
           for tex_file in $(find docs -type f -name "*.tex"); do
-            python .github/scripts/apply_template.py "$tex_file" .github/latex_header.txt
+            python .github/scripts/apply_template.py "$tex_file" .github/latex_header.tex
           done
 
       - name: Commit updated .tex files
@@ -35,24 +35,19 @@ jobs:
           git config user.email "github-actions@github.com"
           git add docs/**/*.tex
           git diff --cached --quiet || git commit -m "Applied LaTeX template via Action"
-          git push
 
-      - name: Find all TeX files
-        id: texfiles
-        run: |
-          find docs -type f -name "*.tex" > tex_files.txt
-          cat tex_files.txt
-
-      - name: Build all LaTeX files
+      - name: Compile all LaTeX files
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: tex_files.txt
+          root_file: |
+            docs/verbali_interni/20-10-25/verbale.tex
+            docs/verbali_interni/22-10-25/verbale.tex
           work_in_root_file_dir: true
 
       - name: Commit generated PDFs
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add docs/**/*.pdf
+          git add docs/**/*.tex
           git diff --cached --quiet || git commit -m "Added compiled PDFs via LaTeX Action"
           git push
