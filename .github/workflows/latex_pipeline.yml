@@ -3,9 +3,7 @@ name: Apply Template & Build PDFs
 on:
   push:
     branches:
-      - main
-      - develop
-      - 'feature/**'
+      - '**'
   workflow_dispatch:
 
 jobs:
@@ -42,9 +40,9 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
-            $(find docs -type f -name "*.tex")
+            docs/verbali_interni/20-10-25/verbale.tex
+            docs/verbali_interni/22-10-25/verbale.tex
           work_in_root_file_dir: true
-          latexmk_shell_escape: true
 
       - name: Commit generated PDFs
         run: |
