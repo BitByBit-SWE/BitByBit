@@ -40,9 +40,10 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: |
-            docs/verbali_interni/20-10-25/verbale.tex
-            docs/verbali_interni/22-10-25/verbale.tex
-            docs/verbali_interni/27-10-25/verbale.tex
+            for tex_file in $(find docs -type f -name "*.tex"); do
+              echo "Compiling $tex_file"
+              latexmk -pdf -interaction=nonstopmode -halt-on-error -cd "$tex_file"
+            done
           work_in_root_file_dir: true
 
       - name: Commit generated PDFs
