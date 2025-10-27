@@ -36,15 +36,12 @@ jobs:
           git add docs/**/*.tex
           git diff --cached --quiet || git commit -m "Applied LaTeX template via Action"
 
-      - name: Compile all LaTeX files
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: |
-            for tex_file in $(find docs -type f -name "*.tex"); do
-              echo "Compiling $tex_file"
-              latexmk -pdf -interaction=nonstopmode -halt-on-error -cd "$tex_file"
-            done
-          work_in_root_file_dir: true
+      - name: Compile all LaTeX files automatically
+        run: |
+          for tex_file in $(find docs -type f -name "*.tex"); do
+            echo "Compiling $tex_file"
+            latexmk -pdf -interaction=nonstopmode -halt-on-error -output-directory=$(dirname "$tex_file") "$tex_file"
+          done
 
       - name: Commit generated PDFs
         run: |
