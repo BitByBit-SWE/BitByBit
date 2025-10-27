@@ -4,7 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
 \usepackage{graphicx}
-\graphicspath{{../assets/}{../../assets/}}
+\graphicspath{{../../assets/}}
 \usepackage{geometry}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
