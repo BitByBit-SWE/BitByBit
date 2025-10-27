@@ -42,8 +42,6 @@ jobs:
           root_file: |
             docs/verbali_interni/20-10-25/verbale.tex
             docs/verbali_interni/22-10-25/verbale.tex
-            docs/verbali_interni/27-10-25/verbale.tex
-            docs/verbali_interni/23-10-25/verbale.tex
           work_in_root_file_dir: true
 
       - name: Commit generated PDFs

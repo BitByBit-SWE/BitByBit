@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[italian]{babel}
 \usepackage{graphicx}
+\graphicspath{{../assets/}{../../assets/}{assets/}}
 \usepackage{geometry}
 \usepackage{xcolor}
 \usepackage{fancyhdr}
@@ -35,7 +36,7 @@
 % ---------- HEADER VISIBILE ---------- 
 \begin{center}
     \vspace*{0.5em}
-    \includegraphics[width=0.25\textwidth]{../assets/image-logo.png}\\[1em]
+    \includegraphics[width=0.25\textwidth]{image-logo.png}\\[1em]
     {\LARGE \textbf{Verbale di Riunione n.\numeroverbale}}\\[0.7em]
     {\large Gruppo: \nomegruppo}\\[0.3em]
     {\normalsize Data: \textbf{\datariunione}}\\[0.3em]
