@@ -2,7 +2,7 @@ name: Create verification issue for reviewers
 
 on:
   pull_request:
-    types: [opened, reopened, ready_for_review]
+    types: [opened, reopened, ready_for_review, review_requested]
 
 permissions:
   contents: read
@@ -55,4 +55,3 @@ jobs:
           project-url: https://github.com/orgs/BitByBit-SWE/projects/2
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
           labeled: verifica
-          content-id: ${{ steps.create_issue.outputs.issue_id }}
