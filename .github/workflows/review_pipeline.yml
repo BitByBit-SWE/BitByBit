@@ -42,7 +42,8 @@ jobs:
               repo,
               title: issueTitle,
               body: issueBody,
-              assignees: reviewers
+              assignees: reviewers,
+              labels: ["verifica"]
             });
 
             core.setOutput("issue_url", newIssue.data.html_url);
@@ -54,4 +55,3 @@ jobs:
         with:
           project-url: https://github.com/orgs/BitByBit-SWE/projects/2
           github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
-          labeled: verifica
